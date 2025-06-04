@@ -2,9 +2,9 @@
   line-height: 1.5;
   font-weight: 400;
 
-  --Light-Brown: #D2B48C;
-  --Cream: #FFFDD0;
   --Ivory:	#FFFFF0;
+  --Cream: #FFFDD0;
+  --Light-Brown: #D2B48C;
   --Taupe: #B38A66;
   --Coffee: #6E4B34;
   --Milk-Chocolate: #805A3C;
@@ -43,11 +43,35 @@ body{
   font-family: "Roboto" ;
   color: var(--Ivory);
   background-color: var(--Milk-Chocolate);
+  overflow-x: hidden;
 }
 
 #root{
   position: relative;
   min-height: 100dvh;
+}
+
+.dot, .ring {
+  position: absolute;
+  transition: top 0.2s ease-out, left 0.2s ease-out;
+  z-index: 100;
+  pointer-events: none; 
+  opacity: 1;
+}
+
+.ring{
+  width: 30px;
+  aspect-ratio: 1/1;
+  border-radius: 100%;
+  background-color: transparent;
+  border: 1px solid var(--Ivory);
+}
+
+.dot{
+  width: 5px;
+  aspect-ratio: 1/1;
+  background-color: var(--Ivory);
+  border-radius: 50%;
 }
 
 .top-logo{
@@ -108,15 +132,15 @@ body{
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 8px;
+  gap: var(--p3);
 }
 
 .logos{
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
 }
 
 .logos a{
@@ -164,15 +188,15 @@ body{
   font-weight: 600;
 }
 
-.nav-item .linkName a{
+.nav-item .linkName p{
   font-size: var(--text-xs);
   color: var(--Ivory);
   text-decoration: none;
   text-transform: uppercase;
 }
 
-.nav-item.active .linkName a,
-.nav-item:hover .linkName a{
+.nav-item.active .linkName p,
+.nav-item:hover .linkName p{
   color: var(--Cream);
 }
 
